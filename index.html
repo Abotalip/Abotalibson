@@ -25,6 +25,12 @@
             --accent: #ff6584;
             --success: #6cff63;
             --transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+          /*marque code*/
+
+              --gold: #FFD700;
+      --dark: #000000;
+      --speed: 25s;
         }
 
         * {
@@ -40,6 +46,17 @@
             overflow-x: hidden;
             line-height: 1.6;
             min-height: 100vh;
+
+          /*marque code here*/
+
+      
+    
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(120deg, #000 0%, #111 100%);
+      overflow: hidden;
+      font-family: "Cairo", sans-serif;
+      color: var(--gold);
         }
 
         /* Header & Navigation */
@@ -511,6 +528,113 @@
             height: 100%;
             z-index: -1;
         }
+
+  /*marque code here*/
+
+          /* تأثير الخطوط الذهبية المتحركة */
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 215, 0, 0.15) 0px,
+        rgba(255, 215, 0, 0.15) 2px,
+        transparent 2px,
+        transparent 20px
+      );
+      animation: moveLines 20s linear infinite;
+      z-index: 0;
+      opacity: 0.25;
+    }
+
+    body::after {
+      animation-direction: reverse;
+      opacity: 0.15;
+    }
+
+    @keyframes moveLines {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-200px, -200px); }
+    }
+
+    /* حاوية الماركي */
+    .marquee-container {
+      position: relative;
+      z-index: 1;
+      width: 90%;
+      max-width: 1200px;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px;
+    }
+
+    .marquee {
+      display: flex;
+      gap: 40px;
+      animation: scroll var(--speed) linear infinite;
+      will-change: transform;
+    }
+
+    .marquee-container:hover .marquee {
+      animation-play-state: paused;
+    }
+
+    .marquee-content {
+      display: flex;
+      gap: 40px;
+    }
+
+    .hashtag {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1rem;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: rgba(255, 215, 0, 0.1);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .hashtag:hover {
+      background: var(--gold);
+      color: #000;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+      transform: scale(1.05);
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* استجابة الشاشات */
+    @media (max-width: 768px) {
+      .hashtag {
+        font-size: 0.9rem;
+        padding: 8px 14px;
+      }
+      .marquee {
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hashtag {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+      .marquee-container {
+        border-radius: 12px;
+      }
+    }
     </style>
 </head>
 <body>
@@ -535,6 +659,34 @@
     <br>
     <br>
     <br>
+<!--Marque code goes hers -->
+
+  <div class="marquee-container">
+    <div class="marquee">
+      <div class="marquee-content">
+        <span class="hashtag">#الإمارات_تبيد_شعب_السودان</span>
+        <span class="hashtag">#UAE_is_exterminating_the_Sudanese_people</span>
+        <span class="hashtag">#Les_EAU_exterminent_le_peuple_soudanais</span>
+        <span class="hashtag">#Die_VAE_vernichten_das_sudanesische_Volk</span>
+        <span class="hashtag">#BAE_Sudan_halkını_yok_ediyor</span>
+        <span class="hashtag">#Los_EAU_exterminan_al_pueblo_sudanés</span>
+        <span class="hashtag">#Gli_EAU_stanno_sterminando_il_popolo_sudanese</span>
+        <span class="hashtag">#ОАЭ_уничтожают_народ_Судана</span>
+      </div>
+
+      <div class="marquee-content" aria-hidden="true">
+        <span class="hashtag">#الإمارات_تبيد_شعب_السودان</span>
+        <span class="hashtag">#UAE_is_exterminating_the_Sudanese_people</span>
+        <span class="hashtag">#Les_EAU_exterminent_le_peuple_soudanais</span>
+        <span class="hashtag">#Die_VAE_vernichten_das_sudanesische_Volk</span>
+        <span class="hashtag">#BAE_Sudan_halkını_yok_ediyor</span>
+        <span class="hashtag">#Los_EAU_exterminan_al_pueblo_sudanés</span>
+        <span class="hashtag">#Gli_EAU_stanno_sterminando_il_popolo_sudanese</span>
+        <span class="hashtag">#ОАЭ_уничтожают_народ_Судана</span>
+      </div>
+    </div>
+  </div>
+  
 <img src="profile.png" style="width: 100%; border-radius: 50%; filter: drop-shadow(3px 4px 2px #ebc634)" alt="" >
     <section class="hero" id="home">
         <div class="hero-content">
